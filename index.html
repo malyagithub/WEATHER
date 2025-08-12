@@ -4,46 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="style.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
-    <div class="card">
-        <div class="search">
-            <input type="text" placeholder="enter city name"
-            spellcheck="false">
-            <button><img src="images/search.png"></button>
-        </div>
-        <div class="error">
-            <p>Invalid city name please enter the valid city name!</p>
-        </div>
-        <div class="weather">
-            <img src="images/rain.png" class="weather-icon">
-        <h1 class="temp">22°C</h1>
-        <h2 class="city">New york</h2>
-        <div class="details">
-            <div class="col">
-                <img src="images/humidity.png">
-                <div>
-                    <p class="humidity">50%</p>
-                    <p>Humidity</p>
-                </div>
-            </div>
-            <div class="col">
-                <img src="images/wind.png">
-                <div>
-                    <p class="wind">15 km/h</p>
-                    <p>Wind Speed</p>
-                </div>
-            </div>
-        </div>
-    
-        </div>
-    </div>
+
+    <!-- Moving background elements -->
+    <img src="images/cloud.png" class="cloud" alt="Cloud">
+    <img src="images/cloud.png" class="cloud" alt="Cloud">
+        <img src="images/cloud.png" class="cloud" alt="Moon">
+    <img src="images/cloud.png" class="moon" alt="Moon">
+
 
     
+<div class="animated-emoji emoji1">☀️</div>
+<div class="animated-emoji emoji2">⛈️</div>
+<div class="animated-emoji emoji3">☁️</div>
+<div class="animated-emoji emoji4">🌥️</div>
+
+<div class="animated-emoji emoji6">🌩️</div>
+
+<div class="animated-emoji emoji8">❄️</div>
+<div class="animated-emoji emoji9">🌪️</div>
+<div class="animated-emoji emoji10">💨</div>
+<div class="animated-emoji emoji11">🌙</div>
+<div class="animated-emoji emoji12">⭐</div>
+
+
+
+
+    <!-- Weather card -->
+    <div class="card">
+        <div class="search">
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <button><img src="images/search.png" alt="Search"></button>
+        </div>
+        <div class="error">
+            <p>Invalid city name, please enter a valid city name!</p>
+        </div>
+        <div class="weather">
+            <img src="images/rain.png" class="weather-icon" alt="Weather Icon">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">New York</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="images/humidity.png" alt="Humidity">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="images/wind.png" alt="Wind Speed">
+                    <div>
+                        <p class="wind">15 km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 <script src="script.js"></script>
 </body>

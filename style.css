@@ -1,99 +1,200 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family:  'poppins', sans-serif;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
-body{
-    background-color: #222;
-}
- .card{
-    width: 90%;
-    max-width: 470px;
-    background: linear-gradient(135deg,#00feba, #5b548a);
-    color: #fff;
-    margin: 100px auto 0;
-    border-radius: 20px;
-    padding: 40px 35px;
-    text-align: center;
 
- }
- .search{
+body {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  background-size: 400% 400%;
+  animation: bgAnimation 15s ease infinite;
+  overflow: hidden;
+}
+
+/* Background gradient animation */
+@keyframes bgAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, rgba(0, 254, 186, 0.9), rgba(91, 84, 138, 0.9));
+  color: #fff;
+  margin: 100px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;  
- }
- .search input{
-    border:0;
-    outline:0;
-    background:#ebfffc;
-    color: #555;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
-    flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
- }
- .search button{
-    border: 0;
-    outline: 0;
-    background: #ebfffc;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
- }
- .search button img{
-    width: 16px ;
- }
-.weather-icon{
-    width: 170px;
-    margin-top: 30px;
 }
 
-.weather h1{
-    font-size: 80px;
-    font-weight: 500;
-
-}
-.weather h2{
-    font-size: 45px;
-    font-weight: 400;
-    margin-top: -10px;
-    
-}
-.details{
-    display: flex;
-    align-items: center;
-justify-content: space-between;
-padding: 0 20px;
-margin-top: 50px;
-
-}
-.col{
-    display: flex;
-    align-items: center;
-    text-align: left;
+.search input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 16px;
+  font-size: 18px;
 }
 
-.col img{
-    width: 40px;
-    margin-right: 10px;
+.search button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
-.humidity,.wind{
-    font-size:28px ;
-    margin-top: -6px;
-}
-.weather{
-    display: none;
-}
-.error{
-    text-align: left;
-    margin-left: 10px;
-font-size: 14px;
-margin-top: 10px;
-display: none;
 
+.search button:hover {
+  transform: rotate(15deg) scale(1.1);
 }
+
+.search button img {
+  width: 16px;
+}
+
+.weather-icon {
+  width: 170px;
+  margin-top: 30px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.weather h1 {
+  font-size: 80px;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.weather h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-top: -10px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.col img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.humidity, .wind {
+  font-size: 28px;
+  margin-top: -6px;
+}
+
+.weather {
+  display: none;
+}
+
+.error {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+/* === Animated Background Elements === */
+.cloud, .sun, .moon {
+  position: absolute;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Cloud floating */
+.cloud {
+  width: 200px;
+  top: 10%;
+  animation: moveClouds 60s linear infinite;
+}
+
+.cloud:nth-child(2) {
+  top: 30%;
+  animation-duration: 80s;
+}
+
+@keyframes moveClouds {
+  from { left: -250px; }
+  to { left: 110%; }
+}
+
+.moon {
+  width: 80px;
+  bottom: 15%;
+  left: 5%;
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Base emoji style (same as before) */
+.animated-emoji {
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.6;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Spread-out positions + unique animations */
+
+/* Row 1 */
+.emoji1 { top: 5%; left: 5%; animation: float1 6s ease-in-out infinite; animation-delay: 0s; color: #FFD700; }
+.emoji2 { top: 5%; left: 45%; animation: float2 8s ease-in-out infinite; animation-delay: 1s; color: #87CEEB; }
+.emoji3 { top: 5%; left: 85%; animation: float3 7s ease-in-out infinite; animation-delay: 2s; color: #FF6347; }
+
+/* Row 2 */
+.emoji4 { top: 30%; left: 15%; animation: float4 9s ease-in-out infinite; animation-delay: 1.5s; color: #32CD32; }
+.emoji5 { top: 30%; left: 55%; animation: float5 6.5s ease-in-out infinite; animation-delay: 2.5s; color: #FF69B4; }
+.emoji6 { top: 30%; left: 90%; animation: float6 8.5s ease-in-out infinite; animation-delay: 3.5s; color: #FFA500; }
+
+/* Row 3 */
+.emoji7 { top: 60%; left: 8%;  animation: float7 7.2s ease-in-out infinite; animation-delay: 1.2s; color: #1E90FF; }
+.emoji8 { top: 60%; left: 40%; animation: float8 8.7s ease-in-out infinite; animation-delay: 2.7s; color: #FF4500; }
+.emoji9 { top: 60%; left: 78%; animation: float9 7.8s ease-in-out infinite; animation-delay: 3.3s; color: #7B68EE; }
+
+/* Row 4 */
+.emoji10 { top: 85%; left: 20%; animation: float10 8.3s ease-in-out infinite; animation-delay: 4.1s; color: #DC143C; }
+.emoji11 { top: 85%; left: 55%; animation: float11 9.1s ease-in-out infinite; animation-delay: 2.6s; color: #20B2AA; }
+.emoji12 { top: 85%; left: 85%; animation: float12 7.5s ease-in-out infinite; animation-delay: 3.7s; color: #FF1493; }
+
